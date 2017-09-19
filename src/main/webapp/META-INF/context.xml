@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Context docBase="${catalina.home}/webapps/ROOT"  privileged="true" >
+       <ResourceLink name="jdbc/dywdb" global="jdbc/dywdb" type="javax.sql.DataSourcer"/>
+</Context>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+              http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+              http://www.springframework.org/schema/cache
+              http://www.springframework.org/schema/cache/spring-cache-3.2.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <!--扫描的包 此处不扫描Controller-->
+    <context:component-scan base-package="com.gaopeng.project">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+    <!-- 导入引用包 -->
+   <!-- <import resource="classpath:properties/config/mybatis-spring-config.xml" />-->
+    <import resource="classpath:properties/config/cache-config.xml" />
+    <import resource="classpath:properties/config/interceptor.xml" />
+    <import resource="classpath:properties/config/spring-aop-config.xml" />
+    <import resource="classpath:properties/config/spring-task-config.xml" />
+
+    <!-- 注册获取Spring上下文对象 -->
+    <bean id="springApplicationContent" class="com.gaopeng.project.util.MySpringApplicationContent"/>
+    <!-- 注册初始化Bean-->
+    <bean id="initService" class="com.gaopeng.project.service.InitService" init-method="init" destroy-method="destory"/>
+</beans>

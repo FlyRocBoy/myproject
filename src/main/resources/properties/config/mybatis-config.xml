@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <!-- changes from the defaults -->
+        <setting name="lazyLoadingEnabled" value="true" />
+        <setting name="logImpl" value="LOG4J2" />
+
+    </settings>
+
+    <!--<plugins>
+       &lt;!&ndash;分页&ndash;&gt;
+        <plugin interceptor="com.etiantian.dayuwenchild.util.page.PageHelper">
+            &lt;!&ndash;ORACLE数据库&ndash;&gt;
+            &lt;!&ndash;<property name="dialect" value="oracle"/>&ndash;&gt;
+            &lt;!&ndash;Mysql数据库&ndash;&gt;
+            <property name="dialect" value="mysql"/>
+        </plugin>
+    </plugins>-->
+    <!--该mappers内容必须为空，否则报错，在Spring中，已经添加自动扫描   -->
+    <mappers></mappers>
+</configuration>

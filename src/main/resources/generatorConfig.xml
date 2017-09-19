@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+
+<generatorConfiguration>
+
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <!--去除注释 （true好像不起作用） -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
+        <!--数据库连接 -->
+        <!--
+            oracle
+            oracle.jdbc.driver.OracleDriver
+            jdbc:oracle:thin:@127.0.0.1:dayuwenchild
+            gw2.bj.etiantian.net:31741
+        -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.168.10.40:3306/dywdb"
+                        userId="dywu"
+                        password="test">
+        </jdbcConnection>
+        <!--默认false
+           Java type resolver will always use java.math.BigDecimal if the database column is of type DECIMAL or NUMERIC.
+         -->
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!--生成实体类 指定包名 以及生成的地址 （可以自定义地址，但是路径不存在不会自动创建  使用Maven生成在target目录下，会自动创建） -->
+        <javaModelGenerator targetPackage="com.etiantian.dayuwenchild.model" targetProject="src\main\java">
+            <property name="enableSubPackages" value="false" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+        <!-- 生成映射(XML实现)文件的包名和位置; 注意多次生成后文件内会有重复,请自己解决 -->
+        <sqlMapGenerator targetPackage="mybatis"  targetProject="src/main/resources/properties">
+
+            <property name="enableSubPackages" value="false" />
+        </sqlMapGenerator>
+        <!-- 生成DAO(Java接口文件)的包名和位置-->
+       <javaClientGenerator type="XMLMAPPER" targetPackage="com.etiantian.dayuwenchild.dao.mapper"
+                            targetProject="src\main\java">
+           <property name="enableSubPackages" value="false" />
+       </javaClientGenerator>
+
+        <!-- 生成DAO的类文件以及配置文件 -->
+        <!--对应数据库表 mysql可以加入主键自增 字段命名 忽略某字段等-->
+        <!--<table tableName="TOL_J_USER_TYPE" domainObjectName="SubjectTypeInfo"/>-->
+        <!--<table tableName="ADMIN_INFO" domainObjectName="AdminInfo"/>-->
+        <!--<table tableName="USER_INFO" domainObjectName="UserInfo"/>-->
+        <!--<table tableName="TEACHER_INFO" domainObjectName="TeacherInfo"/>-->
+        <!--<table tableName="student_info" domainObjectName="StudentInfo"/>-->
+        <!--<table tableName="PARENT_INFO" domainObjectName="ParentInfo"/>
+        <table tableName="SCHOOL_INFO" domainObjectName="SchoolInfo"/>
+        <table tableName="ROLE_INFO" domainObjectName="RoleInfo"/>
+        <table tableName="MENU_INFO" domainObjectName="MenuInfo"/>
+        <table tableName="PAGE_INFO" domainObjectName="PageInfo"/>-->
+       <!-- <table tableName="PAGE_ELEMENT_INFO" domainObjectName="PageElementInfo"/>
+        <table tableName="PAGE_ELEMENT_INFO" domainObjectName="PageElementInfo"/>-->
+        <!--<table tableName="PRIVILEGE_INFO" domainObjectName="PrivilegeInfo"/>-->
+       <!-- <table tableName="PROVINCE_INFO" domainObjectName="ProvinceInfo"/>
+        <table tableName="CITY_INFO" domainObjectName="CityInfo"/>-->
+        <!--<table tableName="CLASS_INFO" domainObjectName="ClassInfo"/>-->
+        <!--<table tableName="COURSE_INFO" domainObjectName="CourseInfo"/>
+        <table tableName="J_COURSE_RESOURCE" domainObjectName="JCourseRsource"/>
+        <table tableName="APPLY_PHASE_INFO" domainObjectName="ApplyPhaseInfo"/>
+        <table tableName="DICTIONARY_INFO" domainObjectName="DictionaryInfo"/>
+        <table tableName="RESOURCE_INFO" domainObjectName="ResourceInfo"/>
+        <table tableName="PREPARE_LESSON_INFO" domainObjectName="PrepareLessonInfo"/>
+        <table tableName="J_PREPARE_LESSON_RESOURCE" domainObjectName="JPrepareLessonResource"/>
+        <table tableName="COURSELIST_INFO" domainObjectName="CourselistInfo"/>
+        <table tableName="J_COURSELIST_COURSE" domainObjectName="JCourselistCourse"/>
+        <table tableName="J_COURSELIST_SCHOOL" domainObjectName="JCourselistSchool"/>
+        <table tableName="classroom_info" domainObjectName="ClassroomInfo"/>
+        <table tableName="j_class_course_info" domainObjectName="JClassCourseInfo"/>
+        <table tableName="j_class_user_info" domainObjectName="JClassUserInfo"/>
+        <table tableName="info_update_info" domainObjectName="InfoUpdateInfo"/>
+        <table tableName="score_detail_info" domainObjectName="ScoreDetailInfo"/>
+        <table tableName="notice_info" domainObjectName="NoticeInfo"/>
+        <table tableName="notice_readed" domainObjectName="NoticeReadedInfo"/>
+        <table tableName="j_notice_user_info" domainObjectName="JNoticeUserInfo"/>
+        <table tableName="enroll_info" domainObjectName="EnrollInfo"/>
+        <table tableName="j_enroll_class_info" domainObjectName="JEnrollClassInfo"/>
+        <table tableName="version_info" domainObjectName="VersionInfo"/>
+        <table tableName="common_user_token_info" domainObjectName="CommonUserTokenInfo"/>
+
+        <table tableName="j_wx_student_info" domainObjectName="JWxStudentInfo"/>
+        <table tableName="sms_msg_logs" domainObjectName="SmsMsgLogs"/>
+        <table tableName="sms_msg_type" domainObjectName="SmsMsgType"/>
+        <table tableName="data_cache_info" domainObjectName="DataCacheInfo"/>
+        <table tableName="j_user_role_info" domainObjectName="JUserRoleInfo"/>
+        <table tableName="student_course_record_info" domainObjectName="StudentCourseRecordInfo"/>
+        -->
+        <!--处理结束-->
+    </context>
+</generatorConfiguration>

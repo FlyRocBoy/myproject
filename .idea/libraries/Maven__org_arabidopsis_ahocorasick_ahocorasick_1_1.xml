@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.arabidopsis.ahocorasick:ahocorasick:1.1">
+    <CLASSES>
+      <root url="jar://D:/MAVEN/apache-maven-3.2.5-bin/apache-maven-3.2.5/repositoryo/org/arabidopsis/ahocorasick/ahocorasick/1.1/ahocorasick-1.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://D:/MAVEN/apache-maven-3.2.5-bin/apache-maven-3.2.5/repositoryo/org/arabidopsis/ahocorasick/ahocorasick/1.1/ahocorasick-1.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://D:/MAVEN/apache-maven-3.2.5-bin/apache-maven-3.2.5/repositoryo/org/arabidopsis/ahocorasick/ahocorasick/1.1/ahocorasick-1.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- status=debug 可以查看log4j的装配过程 off-->
+<configuration status="off" monitorInterval="1800">
+    <properties>
+        <property name="LOG_HOME">${sys:catalina.home}/logs/dayuwenchildlogs</property>
+        <!-- 日志备份目录 -->
+        <property name="FILE_NAME">dayuwenchild_log</property>
+    </properties>
+    <appenders>
+        <!-- 定义控制台输出 -->
+        <Console name="Console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} %level [%thread][%file:%line] - %msg%n" />
+        </Console>
+        <!-- status=debug 可以查看log4j的装配过程 -->
+        <!-- 程序员调试日志 -->
+        <RollingRandomAccessFile name="DevLog" fileName="${LOG_HOME}/${FILE_NAME}.log" filePattern="${LOG_HOME}/$${date:yyyy-MM}/${FILE_NAME}-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout
+                    pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} %level [%thread][%file:%line] - %msg%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="20 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="20" />
+        </RollingRandomAccessFile>
+        <!--生成错误文件-->
+        <!--
+        <RollingRandomAccessFile name="DevErrorLog" fileName="${LOG_HOME}/${FILE_NAME}_error.log" filePattern="${LOG_HOME}/$${date:yyyy-MM}/${FILE_NAME}_error-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout
+                    pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} %level [%thread][%file:%line] - %msg%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="20 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="20" />
+        </RollingRandomAccessFile>
+        -->
+    </appenders>
+    <loggers>
+        <!-- 生成的info信息 -->
+        <logger name="com.etiantian.dayuwenchild" level="info" additivity="false">
+            <appender-ref ref="DevLog" />
+            <appender-ref ref="Console" />
+        </logger>
+        <logger name="com.etiantian.dayuwenchild.dao" level="debug" additivity="false">
+            <appender-ref ref="Console" />
+        </logger>
+        <!--生成的日志文件-->
+        <root level="info">
+            <appender-ref ref="DevLog" />
+            <appender-ref ref="Console" />
+        </root>
+    </loggers>
+</configuration>  

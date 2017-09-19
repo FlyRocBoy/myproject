@@ -1,0 +1,23 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+						http://www.springframework.org/schema/task
+    	                http://www.springframework.org/schema/task/spring-task.xsd
+						">
+    <!-- 未使用 2017年1月24日 15:20:03
+         若使用 需import 到 spring-mvc-config.xml中
+    -->
+
+    <!-- 定时器开关-->
+    <!--<task:annotation-driven/>
+    &lt;!&ndash; 定时任务&ndash;&gt;
+    <bean id="taskService" class="com.etiantian.dayuwenchild.service.TaskService"></bean>
+    <task:scheduled-tasks>
+        &lt;!&ndash; week: 1-7 或者 SUN-SAT  &ndash;&gt;
+        &lt;!&ndash; 每年1月1日上午0点执行0 0 0 1 1 ? &ndash;&gt;
+        &lt;!&ndash; 重置分校当年班级数 &ndash;&gt;
+        <task:scheduled ref="taskService" method="resetSchoolCurrYearClassNum" cron="0 0 0 1 1 ?"/>
+    </task:scheduled-tasks>-->
+</beans>

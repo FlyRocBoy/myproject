@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+ 	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+    ">
+    <!-- aop 相关处理 -->
+
+    <!--用户权限切面类-->
+    <bean id="privilegeAspect" class="com.gaopeng.project.filter.PrivilegeAspect"/>
+    <!--切面配置-->
+    <!-- and args(paramMap,..)" 将service方法中的参数绑定到aop方法中 -->
+    <aop:config proxy-target-class="true">
+        <aop:pointcut id="privilegePointCut"
+                      expression="execution(public com.gaopeng.project.util.ReturnEntity com.gaopeng.project.service.imp.*.*(java.util.Map,..)) and args(paramMap,..)"/>
+        <aop:aspect ref="privilegeAspect" id="aroundAop">
+            <aop:around method="doAround" pointcut-ref="privilegePointCut"/>
+        </aop:aspect>
+    </aop:config>
+</beans>
