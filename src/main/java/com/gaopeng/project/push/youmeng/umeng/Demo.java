@@ -1,7 +1,8 @@
 package com.gaopeng.project.push.youmeng.umeng;
 
-import com.etiantian.dayuwen.push.youmeng.umeng.android.*;
-import com.etiantian.dayuwen.push.youmeng.umeng.ios.*;
+
+import com.gaopeng.project.push.youmeng.umeng.android.*;
+import com.gaopeng.project.push.youmeng.umeng.ios.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
